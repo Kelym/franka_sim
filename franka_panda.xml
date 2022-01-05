@@ -11,6 +11,7 @@
     <include file="assets/assets.xml"/>
     <include file="assets/gripper_assets.xml"/>
     <compiler meshdir=""/>
+    <size njmax="8000" nconmax="4000"/>
 
     <worldbody>
         <include file="assets/chain0.xml"/>

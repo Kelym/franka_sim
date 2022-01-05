@@ -1,0 +1,40 @@
+<mujoco model="franka_panda v200">
+<!-- =================================================
+    Copyright 2018 Vikash Kumar
+    Model   :: Franka (MuJoCoV2.0)
+    Author  :: Vikash Kumar (vikashplus@gmail.com)
+    source  :: https://github.com/vikashplus/franka_sim
+    License :: Under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+====================================================== -->
+
+    <include file="assets/basic_scene.xml"/>
+    <include file="assets/assets.xml"/>
+    <include file="assets/gripper_assets.xml"/>
+    <compiler meshdir=""/>
+    <size njmax="8000" nconmax="4000"/>
+    <option gravity="0 0 0"/>
+
+
+    <equality>
+       <!-- <connect
+        body1="end_effector_body" body2="vive_controller"
+        anchor="0 0 0"
+        solref="0.01 0.45" solimp=".25 .25 0.001" active="true"/> -->
+        <weld
+        body1="end_effector_body" body2="vive_controller"
+        solref="0.01 0.6" solimp=".25 .25 0.001" active="true"/>
+    </equality>
+
+    <worldbody>
+        <!-- Mocap -->
+        <body name="vive_controller" mocap="true" pos=" 2.62069911e-01 -1.38726947e-04  1.12079147e+00" euler="0 0 0">
+            <geom type="box" group="2" pos='0 0 0' size="0.10 0.08 0.05" contype="0" conaffinity="0" rgba=".6 .6 .6 .8" euler="0 0 0"/>
+        </body>
+
+        <include file="assets/chain0.xml"/>
+
+    </worldbody>
+
+    <include file='assets/actuator0.xml'/>
+
+</mujoco>
